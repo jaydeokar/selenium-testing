@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 class GithubWatchRepoTest(unittest.TestCase):
 
         def setUp(self):
-            self.teamname = "csc-510-f19"
+                self.teamname = "csc-510-f19"
 '''
             chromeOptions = webdriver.ChromeOptions()
             chromeOptions.add_argument("--no-sandbox")
@@ -19,10 +19,10 @@ class GithubWatchRepoTest(unittest.TestCase):
             chromeOptions.add_argument("--headless")
             self.driver = webdriver.Chrome(chrome_options=chromeOptions)
 '''
-            self.driver = webdriver.PhantomJS()
-            self.url = "http://34.66.232.72:8065/login"
-            self.driver.get(self.url)
-            sleep(10)
+                self.driver = webdriver.PhantomJS()
+                self.url = "http://34.66.232.72:8065/login"
+                self.driver.get(self.url)
+                sleep(10)
 
         def test_login(self):
             self.driver.find_element_by_name('loginId').send_keys("jsdeokar@ncsu.edu")
