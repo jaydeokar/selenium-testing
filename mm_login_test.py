@@ -19,7 +19,7 @@ class GithubWatchRepoTest(unittest.TestCase):
             chromeOptions.add_argument("disable-infobars")
             chromeOptions.add_argument("--headless")
             self.driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path="/usr/bin/chromedriver")
-            self.url = "http://34.66.232.72:8065/login"
+            self.url = "http://34.66.232.72:8065"
             self.driver.get(self.url)
             sleep(10)
 
