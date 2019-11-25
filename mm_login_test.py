@@ -27,12 +27,12 @@ class GithubWatchRepoTest(unittest.TestCase):
             self.driver.find_element_by_id('loginButton').click()
             sleep(10)
 
-       def logout(self):
+        def logout(self):
             self.driver.find_element_by_id('headerInfo').click()
             self.driver.find_element_by_id('logout').click()
             sleep(2)
 
-       def postmessage(self, channel, msg=None):
+        def postmessage(self, channel, msg=None):
             postchannel = self.url + self.teamname + channel
             self.driver.get(postchannel)
             sleep(2)
