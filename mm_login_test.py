@@ -8,7 +8,6 @@ class GithubWatchRepoTest(unittest.TestCase):
         def setUp(self):
             self.teamname = "csc-510-f19"
             chromeOptions = webdriver.ChromeOptions()
-            chromeOptions.binary_location = "/usr/bin/chromedriver"
             chromeOptions.add_argument("--no-sandbox")
             chromeOptions.add_argument("--disable-setuid-sandbox")
             chromeOptions.add_argument("--disable-dev-shm-using")
@@ -17,7 +16,7 @@ class GithubWatchRepoTest(unittest.TestCase):
             chromeOptions.add_argument("start-maximized")
             chromeOptions.add_argument("disable-infobars")
             chromeOptions.add_argument("--headless")
-            self.driver = webdriver.Chrome(chrome_options=chromeOptions)
+            self.driver = webdriver.Chrome(chrome_options=chromeOptions, executable_path="/usr/bin/chromedriver")
             self.url = "http://34.66.232.72:8065/login"
             self.driver.get(self.url)
             sleep(10)
