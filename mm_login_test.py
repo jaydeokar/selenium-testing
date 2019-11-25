@@ -21,12 +21,35 @@ class GithubWatchRepoTest(unittest.TestCase):
             self.driver.get(self.url)
             sleep(10)
 
-        def test_login(self):
+        def login(self):
             self.driver.find_element_by_name('loginId').send_keys("jsdeokar@ncsu.edu")
             self.driver.find_element_by_name('password').send_keys("Jarvisbot@2019")
             self.driver.find_element_by_id('loginButton').click()
             sleep(10)
 
+       def logout(self):
+            self.driver.find_element_by_id('headerInfo').click()
+            self.driver.find_element_by_id('logout').click()
+            sleep(2)
+
+       def postmessage(self, channel, msg=None):
+            postchannel = self.url + self.teamname + channel
+            self.driver.get(postchannel)
+            sleep(2)
+            if msg:
+                element = self.driver.find_element_by_id('post_textbox')
+                element.send_keys(msg)
+                element.submit()
+                sleep(1)
+            a = self.driver.find_elements_by_class_name("post-message__text")
+            return a[-1].text
+        
+        def test_use_case_1_happy(self):
+            self.login()
+            date = datetime.datetime.now().strftime("%Y/%m/%d-%H:%M")
+            name = 'test-sel1-' + date
+            self.postmessage('/messages/@jarvisbot','create-submission ' + name + " " + date + " 2 " + "https://docs.google.com/spreadsheets/")
+   
 
         def tearDown(self):
             self.driver.close()
