@@ -37,12 +37,12 @@ class GithubWatchRepoTest(unittest.TestCase):
         def postmessage(self, channel, msg=None):
             postchannel = self.url + self.teamname + channel
             self.driver.get(postchannel)
-            sleep(2)
+            sleep(10)
             if msg:
                 element = self.driver.find_element_by_id('post_textbox')
                 element.send_keys(msg)
                 element.submit()
-                sleep(1)
+                sleep(10)
             a = self.driver.find_elements_by_class_name("post-message__text")
             return a[-1].text
         
