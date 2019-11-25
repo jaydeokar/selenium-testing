@@ -8,6 +8,7 @@ class GithubWatchRepoTest(unittest.TestCase):
         def setUp(self):
             self.teamname = "csc-510-f19"
             chromeOptions = webdriver.ChromeOptions()
+            chromeOptions.binary_location = "/usr/bin/chromedriver"
             chromeOptions.add_argument("--no-sandbox")
             chromeOptions.add_argument("--disable-setuid-sandbox")
             chromeOptions.add_argument("--disable-dev-shm-using")
